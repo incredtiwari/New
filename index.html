@@ -1,0 +1,944 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AADITYA LAW GROUP - Professional Legal Services</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Base and typography */
+    body {
+      background-color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      min-height: 100vh;
+    }
+    h1, h2, h3, h4, h5 {
+      color: #000000;
+      font-family: 'Lora', serif;
+    }
+    .font-playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    a {
+      color: #000000;
+      font-family: 'Montserrat', sans-serif;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #444444;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    /* Navigation */
+    nav .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      height: 80px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      background-color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .logo-wrapper {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+    }
+    .logo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .nav-title-wrapper {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      white-space: normal;
+      max-width: calc(100% - 140px);
+    }
+    .nav-title {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: #000000;
+      margin: 0;
+      user-select: none;
+      word-break: break-word;
+      text-shadow: 0 0 2px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 768px) {
+      .nav-title {
+        font-size: 1.25rem;
+      }
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      position: relative;
+      color: #000000;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      text-decoration: none;
+      transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+      white-space: nowrap;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #000000;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus {
+      color: #000000;
+      outline: none;
+      transform: scale(1.1);
+    }
+    .nav-links a:hover::after, .nav-links a:focus::after {
+      width: 100%;
+      left: 0;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      color: #000000;
+      font-size: 2rem;
+      padding-right: 1rem;
+      flex-shrink: 0;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .hamburger:hover, .hamburger:focus {
+      color: #444444;
+      transform: rotate(90deg);
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #FFFFFF;
+        position: absolute;
+        right: 0;
+        top: 80px;
+        width: 100%;
+        z-index: 40;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      }
+      .nav-links.open {
+        display: flex;
+        animation: fadeSlideDown 0.5s ease forwards;
+      }
+      @keyframes fadeSlideDown {
+        0% {opacity: 0; transform: translateY(-10px);}
+        100% {opacity: 1; transform: translateY(0);}
+      }
+      .hamburger {
+        display: block;
+      }
+      .nav-links a {
+        padding: 1rem 2rem;
+        color: #000000;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .nav-links a:hover, .nav-links a:focus {
+        background-color: #f0f0f0;
+        color: #000000;
+        transform: scale(1.05);
+      }
+      .nav-title-wrapper {
+        max-width: 100%;
+        order: 3;
+        padding-bottom: 0.5rem;
+        justify-content: space-between;
+      }
+      .logo-wrapper {
+        order: 1;
+      }
+      .hamburger {
+        order: 2;
+        margin-left: auto;
+      }
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      animation: fadeInUp 1.2s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Cards */
+    .advocate-card, .service-card {
+      transition: transform 0.3s cubic-bezier(.11,.77,.57,1), box-shadow 0.3s ease;
+      background-color: #FFFFFF;
+      color: #000000;
+      border-radius: 0.75rem;
+      border: 1px solid #ddd;
+    }
+    .advocate-card:hover, .service-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .service-card {
+      background-color: #FAFAFA;
+    }
+    .advocate-card img {
+      object-fit: contain !important;
+      transition: transform 0.3s ease;
+    }
+    .advocate-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background-color: #000;
+      color: #fff;
+      transition: background-color 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .btn-primary:hover, .btn-primary:focus {
+      background-color: #444;
+      outline: none;
+    }
+
+    /* Team photo */
+    .team-photo-container {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .team-photo-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* WhatsApp button */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .whatsapp-button:hover, .whatsapp-button:focus {
+      background-color: #1ebe57;
+      outline: none;
+    }
+    .whatsapp-button i {
+      color: white;
+      font-size: 30px;
+    }
+
+    /* FAQ styles */
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+    }
+    .faq-question {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      color: #000000;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      color: #000000;
+    }
+    .faq-answer.open {
+      max-height: 500px;
+      padding-bottom: 1.5rem;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+      color: #000000;
+    }
+    .faq-icon.rotate {
+      transform: rotate(180deg);
+    }
+
+    /* Hero Section */
+    .hero-unique {
+      background: linear-gradient(135deg, #c49e3f 0%, #4a6980 100%);
+      position: relative;
+      color: black;
+      overflow: hidden;
+    }
+    .hero-bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #f3e1ad 40%, #284a65 100%);
+      opacity: 0.6;
+      animation: gradientShift 15s ease infinite;
+      z-index: 0;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Contact Info Box in Hero */
+    #contact-info-hero {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+      color: #222;
+    }
+    #contact-info-hero a {
+      color: #c49e3f;
+      text-decoration: none;
+    }
+    #contact-info-hero a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact Form in Footer */
+    #contactForm {
+      max-width: 480px;
+      margin: 0 auto;
+      color: #222;
+    }
+    #contactForm input, #contactForm textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.375rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      box-sizing: border-box;
+    }
+    #contactForm button {
+      width: 100%;
+      padding: 0.75rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #000;
+      color: #fff;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+    #contactForm button:hover, #contactForm button:focus {
+      background-color: #444;
+      outline: none;
+    }
+    #formStatus {
+      font-weight: 600;
+      margin-top: 0.5rem;
+      min-height: 1.2em;
+      text-align: center;
+    }
+
+    /* Blog Section and Form */
+    #blog .blog-article {
+      background-color: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      text-align: left;
+    }
+    #blog .blog-article h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+      color: #000000;
+    }
+    #blog .blog-article p.date {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    #blog .blog-article a {
+      font-weight: 600;
+      color: #c49e3f;
+      text-decoration: none;
+    }
+    #blog .blog-article a:hover {
+      text-decoration: underline;
+    }
+
+    #blogForm {
+      max-width: 600px;
+      background: #f3f4f6;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      color: #222;
+      font-family: 'Montserrat', sans-serif;
+    }
+    #blogForm input, #blogForm textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.375rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    #blogForm button {
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #000;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #blogForm button:hover, #blogForm button:focus {
+      background-color: #444;
+      outline: none;
+    }
+    #blogFormStatus {
+      font-weight: 600;
+      margin-top: 0.5rem;
+      min-height: 1.2em;
+      text-align: center;
+    }
+
+    /* Responsive Utilities */
+    @media (min-width: 768px) {
+      #contactForm {
+        padding: 3rem;
+      }
+      #blogForm {
+        padding: 3rem;
+      }
+    }
+
+  </style>
+  <script>
+    // Toggle nav links on hamburger click
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('open');
+    }
+
+    // FAQ toggle
+    function toggleFaq(element) {
+      const answer = element.nextElementSibling;
+      const icon = element.querySelector('.faq-icon');
+
+      const is_open = answer.classList.contains('open');
+
+      // Close all open FAQ items
+      document.querySelectorAll('.faq-answer.open').forEach(item => {
+        item.classList.remove('open');
+        item.previousElementSibling.querySelector('.faq-icon').classList.remove('rotate');
+      });
+
+      // If the clicked item was not open, open it
+      if (!is_open) {
+        answer.classList.add('open');
+        icon.classList.add('rotate');
+      }
+    }
+
+    // Blog Posts array with sample static posts
+    const blogPosts = [
+      {
+        title: "Understanding Civil Litigation Basics",
+        date: "2025-09-05",
+        summary: "Explore the fundamentals of civil litigation and what you need to know before filing a case...",
+        content: "Full detailed content here."
+      },
+      {
+        title: "Latest Updates on Corporate Law",
+        date: "2025-09-04",
+        summary: "Stay informed about the newest regulatory changes affecting businesses and corporate governance in India...",
+        content: "Full detailed content here."
+      },
+      {
+        title: "What To Expect in Criminal Defense",
+        date: "2025-09-03",
+        summary: "A practical guide outlining the important aspects of criminal defense cases and how to prepare for trials...",
+        content: "Full detailed content here."
+      }
+    ];
+
+    const blogPostsContainer = document.getElementById('blogPosts');
+    const blogForm = document.getElementById('blogForm');
+    const blogFormStatus = document.getElementById('blogFormStatus');
+
+    // Render blogs on page
+    function renderBlogs() {
+      blogPostsContainer.innerHTML = '';
+      blogPosts.sort((a,b) => new Date(b.date) - new Date(a.date));
+      blogPosts.forEach(post => {
+        const article = document.createElement('article');
+        article.classList.add('blog-article');
+
+        article.innerHTML = `
+          <h3>${post.title}</h3>
+          <p class="date">${new Date(post.date).toLocaleDateString()}</p>
+          <p>${post.summary}</p>
+          <a href="#" onclick="alert('Full content:\\n\\n${post.content.replace(/'/g, '\\\'')}');return false;">Read More →</a>
+        `;
+        blogPostsContainer.appendChild(article);
+      });
+    }
+
+    renderBlogs();
+
+    // Blog form submission handler
+    if (blogForm) {
+      blogForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const title = document.getElementById('blogTitle').value.trim();
+        const date = document.getElementById('blogDate').value;
+        const summary = document.getElementById('blogSummary').value.trim();
+        const content = document.getElementById('blogContent').value.trim();
+
+        if (!title || !date || !summary || !content) {
+          blogFormStatus.textContent = 'Please fill in all fields.';
+          return;
+        }
+
+        blogPosts.push({title, date, summary, content});
+        renderBlogs();
+
+        blogFormStatus.textContent = 'Blog submitted successfully!';
+        blogForm.reset();
+
+        setTimeout(() => {
+          blogFormStatus.textContent = '';
+        }, 5000);
+      });
+    }
+
+    // Contact Form submission handler (Web3Forms)
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      if(form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const status = document.getElementById('formStatus');
+          status.textContent = 'Sending...';
+
+          const formData = {
+            name: form.name.value.trim(),
+            email: form.email.value.trim(),
+            phone: form.phone.value.trim(),
+            message: form.message.value.trim(),
+          };
+
+          try {
+            const resp = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                access_key: 'YOUR_ACCESS_KEY_HERE', // Replace with your actual Web3Forms access key
+                subject: 'New Contact from Aaditya Law Group Website',
+                reply_to: formData.email,
+                sender_name: formData.name,
+                message: `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage:\n${formData.message}`,
+                data: formData,
+                email: 'tiwarihimanshumfka@gmail.com'
+              }),
+            });
+            const data = await resp.json();
+            if (data.success) {
+              status.textContent = 'Message sent successfully!';
+              form.reset();
+            } else {
+              status.textContent = 'Failed to send message. Please try again.';
+            }
+          } catch (error) {
+            status.textContent = 'Error sending message. Please check your connection.';
+          }
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="shadow-lg fixed w-full top-0 z-50" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+      <div class="logo-wrapper">
+        <img src="logo.PNG" alt="Aaditya Law Group Logo" />
+      </div>
+      <div class="nav-title-wrapper">
+        <h1 class="nav-title" tabindex="0">AADITYA LAW GROUP</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#home" tabindex="0">Home</a>
+        <a href="#about" tabindex="0">About</a>
+        <a href="#team" tabindex="0">Our Team</a>
+        <a href="#services" tabindex="0">Services</a>
+        <a href="#contact" tabindex="0">Contact</a>
+        <a href="#blog" tabindex="0">Blog</a>
+        <a href="#faq" tabindex="0">FAQ</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation" tabindex="0" role="button" onkeypress="if(event.key==='Enter'){toggleMenu();}">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+<body>
+<section id="blog" class="bg-white fade-in px-4 py-20 max-w-7xl mx-auto">
+  <h2 class="text-4xl font-bold mb-4 text-gray-800">Blog Posts</h2>
+  <div id="blog-posts" class="space-y-6 mb-12">
+    <!-- Blog posts will be dynamically inserted here -->
+  </div>
+  <h3 class="text-2xl font-semibold mb-4 text-gray-700">Add New Blog Post</h3>
+  <form id="blog-form" class="max-w-lg space-y-4">
+    <input type="text" id="blog-title" placeholder="Title" required class="w-full p-2 border border-gray-300 rounded" />
+    <textarea id="blog-content" placeholder="Content" required rows="5" class="w-full p-2 border border-gray-300 rounded"></textarea>
+    <input type="text" id="blog-author" placeholder="Author" required class="w-full p-2 border border-gray-300 rounded" />
+    <button type="submit" class="btn-primary">Post Blog</button>
+  </form>
+</section>
+</body>
+  <!-- Hero Section with Contact Info -->
+  <section id="home" class="hero-unique text-center pt-24 pb-20 fade-in" style="position: relative;">
+    <div class="hero-bg-gradient" aria-hidden="true"></div>
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-black">
+      <h2 class="text-5xl md:text-6xl font-playfair font-bold mb-4">Welcome to Aaditya Law Group</h2>
+      <p class="text-xl md:text-2xl mb-8 font-semibold" style="color: #333333;">
+        Expert Legal Representation Tailored for You
+      </p>
+      <div id="contact-info-hero" aria-label="Main contact information">
+        <h3 class="text-2xl font-semibold mb-4 font-playfair">Contact Information</h3>
+        <p><strong>Phone:</strong> <a href="tel:+919415450478">+91 94154 50478</a></p>
+        <p><strong>Email:</strong> <a href="mailto:tiwarihimanshumfka@gmail.com">tiwarihimanshumfka@gmail.com</a></p>
+        <p><strong>Address:</strong> Shop No.A1, Dayal Residency Chinhat Lucknow-226028</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-white fade-in pt-20 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-4">About Our Firm</h2>
+      <div class="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+      <p class="max-w-3xl mx-auto text-lg leading-relaxed" style="text-align: center;">
+        AADITYA LAW GROUP is a dynamic and trusted law firm committed to delivering comprehensive legal solutions across India. With a strong presence in Lucknow High Court, Delhi High Court, Delhi Civil Courts, Chhattisgarh High Court, and the Supreme Court of India, we represent clients in diverse matters with utmost dedication and professionalism. Our firm specializes in handling civil, criminal, corporate, constitutional, and commercial cases, along with advisory and consultancy services for individuals, businesses, and institutions. We pride ourselves on our integrity, client-focused approach, and in-depth legal expertise, ensuring justice and the best possible outcomes for every client. With a mission to make quality legal services accessible and effective, AADITYA LAW GROUP stands as a symbol of trust, knowledge, and advocacy--"Where Law Meets Justice."
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Team Section -->
+  <section id="our-team" class="py-20 bg-white fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-4">Our Team</h2>
+      <div class="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+      <div class="team-photo-container">
+        <img src="group1.jpg" alt="Our Legal Team Photo" />
+      </div>
+      <div class="team-photo-container">
+        <img src="group 2.jpg" alt="Our Legal Team Photo" />
+      </div>
+      <div class="team-photo-container">
+        <img src="group 3.jpg" alt="Our Legal Team Photo" />
+      </div>
+      <p class="max-w-4xl mx-auto leading-relaxed" style="color: #000000;">
+        Meet the dedicated legal professionals who work diligently to provide exceptional legal services and achieve the best results for our clients.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="py-20 bg-gray-50 fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Our Legal Team</h2>
+        <div class="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+        <p class="max-w-3xl mx-auto">
+          Dedicated professionals with extensive expertise across various fields of law.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="advocate-card shadow-md overflow-hidden rounded-lg">
+          <div class="h-64 bg-gray-200 overflow-hidden rounded-t-lg">
+            <img
+              src="aaditya.jpg"
+              alt="Aditya Tiwari, senior advocate"
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Aditya Tiwari</h3>
+            <p class="font-medium mb-4" style="color: #c49e3f;">Advocate & Legal Consultant</p>
+            <p class="mb-4">
+              With over 8 years of experience in criminal, civil and corporate law, Aditya brings exceptional expertise and dedication to every case.
+            </p>
+            <p style="margin-bottom: 0.25rem;">
+              <strong>Contact:</strong>
+              <a href="tel:+919415450478" style="color: #c49e3f; text-decoration: none;">9415450478</a>
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:arya3270@gmail.com" style="color: #c49e3f; text-decoration: none;">arya3270@gmail.com</a>
+            </p>
+          </div>
+        </div>
+        <div id="anurag-profile" class="advocate-card shadow-md overflow-hidden rounded-lg">
+          <div class="h-64 bg-gray-200 overflow-hidden rounded-t-lg">
+            <img
+              src="anurag.jpg"
+              alt="Anurag Tripathi, corporate lawyer"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6 text-justify">
+            <h3 class="text-xl font-semibold mb-2">Anurag Tripathi</h3>
+            <p class="font-medium mb-4" style="color: #c49e3f;">Advocate & Legal Consultant</p>
+            <p class="mb-4">
+              At the core of Anurag Tripathi's practice is a simple principle--trust through results. As a passionate legal professional, he combines legal expertise with clear communication and a personalized approach to every case. Whether it's resolving disputes, managing compliance, or offering legal advice, Anurag ensures clients feel supported and informed at every step. Beyond law, he values strong public engagement, relationship building, and a forward-thinking approach to problem-solving. With dedication, honesty, and innovation, Anurag is here to guide you through every legal challenge with confidence.
+            </p>
+            <p style="margin-bottom: 0.25rem;">
+              <strong>Contact:</strong>
+              <a href="tel:+919415453861" style="color: #c49e3f; text-decoration: none;">9415453861</a>
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:yogianurag9415@gmail.com" style="color: #c49e3f; text-decoration: none;">yogianurag9415@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-white fade-in pt-20 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-4">Our Legal Services</h2>
+      <div class="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+      <p class="max-w-3xl mx-auto mb-16 text-gray-700">
+        Comprehensive legal solutions tailored to meet your specific needs and objectives.
+      </p>
+
+      <div class="justified-text max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+        <div class="service-card p-6 rounded-lg shadow-md">
+          <i class="fas fa-balance-scale text-4xl text-yellow-600 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-4 text-gray-900">Civil Litigation</h3>
+          <p class="text-gray-700 text-sm mb-2">
+            Our civil litigation services cover a broad range of disputes including property conflicts, contract enforcement, tort claims, and civil rights protection.
+          </p>
+          <p class="text-gray-700 text-sm mb-2">
+            We provide skilled representation from filing complaints to settlement negotiations and courtroom advocacy to ensure the protection of your rights.
+          </p>
+          <p class="text-gray-700 text-sm">
+            Whether you are an individual or corporate entity, we tailor strategies to achieve effective and efficient resolutions aligned with your best interests.
+          </p>
+        </div>
+        <div class="service-card p-6 rounded-lg shadow-md">
+          <i class="fas fa-gavel text-4xl text-yellow-600 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-4 text-gray-900">Criminal Services</h3>
+          <p class="text-gray-700 text-sm mb-2">
+            We offer comprehensive defense and advisory services for all criminal matters including white-collar crimes, assault, theft, and other offenses.
+          </p>
+          <p class="text-gray-700 text-sm mb-2">
+            Our experienced criminal lawyers advocate vigorously on your behalf to protect your rights and seek the most favorable outcomes.
+          </p>
+          <p class="text-gray-700 text-sm">
+            From bail applications, charge framing, trial proceedings to appeals, our team is committed to providing responsive and strategic legal support.
+          </p>
+        </div>
+        <div class="service-card p-6 rounded-lg shadow-md">
+          <i class="fas fa-building text-4xl text-yellow-600 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-4 text-gray-900">Corporate Services</h3>
+          <p class="text-gray-700 text-sm mb-2">
+            Our corporate legal services span company formation, regulatory compliance, contract drafting and negotiation, mergers and acquisitions, and dispute resolution.
+          </p>
+          <p class="text-gray-700 text-sm mb-2">
+            We help businesses navigate complex legal frameworks ensuring adherence to applicable laws and protecting your commercial interests.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section with Blog Submission -->
+  <section id="blog" class="bg-white py-20 fade-in">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
+      <h2 class="text-4xl font-playfair font-bold mb-6">Our Blog</h2>
+      <div class="w-24 h-1 bg-yellow-400 mx-auto mb-10"></div>
+      <p class="max-w-3xl mx-auto mb-12 text-gray-700" style="font-family: 'Montserrat', sans-serif;">
+        Stay updated with the latest legal insights, news, and guidance from Aaditya Law Group.
+      </p>
+
+      <!-- Blog Upload Form -->
+      <form id="blogForm" aria-label="Blog Submission Form">
+        <h3 class="text-2xl font-playfair font-bold mb-6">Submit Your Blog</h3>
+
+        <input type="text" id="blogTitle" placeholder="Blog Title" required />
+        <input type="date" id="blogDate" required />
+        <textarea id="blogSummary" placeholder="Brief Summary" required rows="3"></textarea>
+        <textarea id="blogContent" placeholder="Full Content" required rows="6"></textarea>
+
+        <button type="submit" class="btn-primary">Post Blog</button>
+        <p id="blogFormStatus" role="alert" aria-live="polite"></p>
+      </form>
+
+      <!-- Blog Posts List -->
+      <div id="blogPosts" class="grid md:grid-cols-3 gap-10"></div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-white fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)" role="button" tabindex="0" onkeypress="if(event.key==='Enter'){toggleFaq(this);}">
+          What types of cases do you handle?
+          <i class="faq-icon fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          We handle a wide range of cases including civil, criminal, corporate, constitutional, and commercial law matters.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)" role="button" tabindex="0" onkeypress="if(event.key==='Enter'){toggleFaq(this);}">
+          How can I schedule a consultation?
+          <i class="faq-icon fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          You can contact us via phone, email, or the contact form on our website to schedule a consultation.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)" role="button" tabindex="0" onkeypress="if(event.key==='Enter'){toggleFaq(this);}">
+          Do you offer legal advice for businesses?
+          <i class="faq-icon fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          Yes, we provide advisory and consultancy services for businesses on regulatory compliance, contract drafting, and more.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer with Contact Us Form -->
+  <footer id="contact" class="bg-white pt-20 pb-20 fade-in">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+      <h2 class="text-4xl font-bold mb-6 text-center font-playfair">Contact Us</h2>
+
+      <form id="contactForm" aria-label="Contact Form">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <input type="text" name="name" id="name" placeholder="Your Name" required aria-required="true" />
+          <input type="email" name="email" id="email" placeholder="Your Email" required aria-required="true" />
+        </div>
+        <input type="tel" name="phone" id="phone" placeholder="Your Phone" />
+        <textarea name="message" id="message" rows="4" placeholder="Your Message" required aria-required="true"></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+        <p id="formStatus" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Contact Button -->
+  <a href="https://wa.me/919415450478" target="_blank" class="whatsapp-button" aria-label="Contact on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</body>
+</html>
+<script>const apiBase = "https://your-backend-server.com/api/blogs"; // Replace with your actual API URL
+
+// Fetch and display all blogs
+async function loadBlogs() {
+  const res = await fetch(apiBase);
+  const blogs = await res.json();
+  const container = document.getElementById("blog-posts");
+  container.innerHTML = "";
+  blogs.forEach(blog => {
+    const postDiv = document.createElement("div");
+    postDiv.classList.add("service-card", "p-4", "rounded-lg", "shadow-md");
+    postDiv.innerHTML = `
+      <h4 class="text-xl font-bold text-gray-900">${blog.title}</h4>
+      <p class="text-gray-700 mt-2">${blog.content}</p>
+      <p class="text-gray-500 mt-2 italic">By ${blog.author}</p>
+    `;
+    container.appendChild(postDiv);
+  });
+}
+
+// Handle blog form submission
+document.getElementById("blog-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const title = document.getElementById("blog-title").value;
+  const content = document.getElementById("blog-content").value;
+  const author = document.getElementById("blog-author").value;
+
+  const newPost = { title, content, author };
+
+  try {
+    const res = await fetch(apiBase, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newPost)
+    });
+    if (res.ok) {
+      alert("Blog post added successfully!");
+      document.getElementById("blog-form").reset();
+      loadBlogs();
+    } else {
+      alert("Failed to add blog post.");
+    }
+  } catch (err) {
+    alert("Error submitting blog post.");
+    console.error(err);
+  }
+});
+
+loadBlogs();
+</script>
