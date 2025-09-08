@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaditya Law Group - Supreme Court Style Legal Services</title>
+    <meta name="description" content="Expert legal services inspired by Supreme Court of India. Corporate Law, Criminal Defense, Family Law, Property Law in Lucknow.">
+    
+    <!-- EmailJS Script for sending appointment emails -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your public key
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #8B0000;
+            --primary-gold: #DAA520;
+            --supreme-blue: #1e3a8a;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-cream: #fdf7e7;
+            --bg-white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Times New Roman', 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Government Header Bar */
+        .gov-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8500 50%, #138808 100%);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* Top Bar with Emblem */
+        .top-bar {
+            background: var(--bg-white);
+            border-bottom: 4px solid var(--primary-gold);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .top-bar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .emblem-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .emblem {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, var(--primary-gold) 0%, #b8860b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            border: 3px solid var(--primary-red);
+            position: relative;
+        }
+
+        .emblem::before {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border: 2px solid var(--primary-gold);
+            border-radius: 50%;
+            top: -8px;
+            left: -8px;
+        }
+
+        .title-section h1 {
+            font-size: 2.2rem;
+            color: var(--primary-red);
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .title-section .subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .contact-info {
+            text-align: right;
+            color: var(--text-light);
+        }
+
+        .contact-info strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-red);
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-menu li:last-child {
+            border-right: none;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 18px 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--primary-gold);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 80%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.9), rgba(30, 58, 138, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23fdf7e7" width="1200" height="800"/><polygon fill="%23f3e8ab" points="0,400 300,200 600,350 900,100 1200,250 1200,800 0,800"/><polygon fill="%23daa520" points="300,200 600,50 900,200 1200,0 1200,250 900,100 600,350" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 80px 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 35 L85 35 L67 52 L75 78 L50 65 L25 78 L33 52 L15 35 L40 35 Z" fill="rgba(218,165,32,0.1)"/></svg>');
+            background-size: 200px;
+            background-position: top right;
+        }
+
+        .hero-content {
+            color: white;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            color: var(--primary-gold);
+            text-decoration: underline;
+            text-decoration-color: var(--primary-gold);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        .motto {
+            background: rgba(218, 165, 32, 0.1);
+            border: 2px solid var(--primary-gold);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .motto-text {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-gold);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .motto-translation {
+            font-size: 1.1rem;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-gold), #ffd700);
+            color: var(--text-dark);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.3);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(218, 165, 32, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--primary-gold);
+            color: var(--text-dark);
+        }
+
+        /* Announcement Bar */
+        .announcement {
+            background: var(--supreme-blue);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            animation: slideIn 2s ease-out;
+        }
+
+        .announcement strong {
+            color: var(--primary-gold);
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+            font-weight: bold;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gold);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 40px 30px;
+            border: 3px solid var(--primary-gold);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.2);
+            border-color: var(--primary-red);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            color: var(--primary-red);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Advocates Section */
+        .advocates {
+            padding: 80px 0;
+            background: var(--bg-cream);
+        }
+
+        .advocates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 4rem;
+        }
+
+        .advocate-card {
+            background: var(--bg-white);
+            border: 4px solid var(--primary-gold);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px var(--shadow);
+        }
+
+        .advocate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(139, 0, 0, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .advocate-card:hover::before {
+            opacity: 1;
+        }
+
+        .advocate-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(139, 0, 0, 0.2);
+        }
+
+        .advocate-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-red), #a00);
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+            border: 4px solid var(--primary-gold);
+            position: relative;
+            z-index: 2;
+        }
+
+        .advocate-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .advocate-card .title {
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .advocate-specialties {
+            list-style: none;
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+
+        .advocate-specialties li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+            font-size: 1rem;
+        }
+
+        .advocate-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .advocate-contact a {
+            color: var(--primary-red);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border: 2px solid var(--primary-gold);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .advocate-contact a:hover {
+            background: var(--primary-gold);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Statistics Section */
+        .statistics {
+            padding: 60px 0;
+            background: var(--primary-red);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-gold);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: var(--primary-red);
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item-large {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 25px;
+            background: var(--bg-cream);
+            border-left: 5px solid var(--primary-gold);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item-large:hover {
+            background: rgba(218, 165, 32, 0.1);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            margin-right: 20px;
+            color: var(--primary-red);
+            margin-top: 5px;
+        }
+
+        .contact-item-large strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-red);
+            font-size: 1.1rem;
+        }
+
+        .contact-item-large a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item-large a:hover {
+            color: var(--primary-red);
+        }
+
+        .contact-form {
+            background: var(--bg-cream);
+            padding: 40px;
+            border-radius: 15px;
+            border: 3px solid var(--primary-gold);
+            box-shadow: 0 15px 35px var(--shadow);
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-red);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--primary-gold);
+            border-radius: 8px;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--primary-red), #a00);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            width: 100%;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, #a00, var(--primary-red));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            border-top: 2px solid var(--primary-gold);
+            padding-top: 25px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-content {
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-red);
+                flex-direction: column;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+            }
+
+            .top-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .emblem-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .title-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid,
+            .advocates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading screen */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--supreme-blue) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-emblem {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            border: 4px solid white;
+        }
+
+        .loading-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            animation: fadeInOut 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-emblem">⚖️</div>
+        <div class="loading-text">
+            Justice Never Sleeps<br>
+            <small style="font-size: 1rem; opacity: 0.8;">न्याय कभी नहीं सोता</small>
+        </div>
+    </div>
+
+    <!-- Government Header -->
+    <div class="gov-header">
+        🇮🇳 भारत सरकार | Government of India | गृह मंत्रालय | Ministry of Home Affairs
+    </div>
+
+    <!-- Top Bar with Emblem -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="emblem-section">
+                    <div class="emblem">⚖️</div>
+                    <div class="title-section">
+                        <h1>Aaditya Law Group</h1>
+                        <div class="subtitle">सत्यमेव जयते | Truth Alone Triumphs</div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <strong>सर्वोच्च न्यायालय शैली | Supreme Court Style</strong>
+                    📞 +91 94154 50478<br>
+                    ✉️ arya3270@gmail.com<br>
+                    📍 Chinhat, Lucknow - 226028
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">होम | Home</a></li>
+                    <li><a href="#services">सेवाएं | Services</a></li>
+                    <li><a href="#advocates">अधिवक्ता | Advocates</a></li>
+                    <li><a href="#statistics">आंकड़े | Statistics</a></li>
+                    <li><a href="#contact">संपर्क | Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h2>न्याय की <span class="highlight">सर्वोच्च सेवा</span></h2>
+                <p>Where Justice Meets Excellence | जहां न्याय मिलता है उत्कृष्टता से</p>
+                
+                <div class="motto">
+                    <div class="motto-text">सत्यमेव जयते</div>
+                    <div class="motto-translation">"Truth Alone Triumphs"</div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#contact" class="cta-button">निःशुल्क परामर्श | Free Consultation</a>
+                    <a href="#services" class="cta-button secondary">हमारी सेवाएं | Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        <div class="container">
+            <strong>सूचना | Notice:</strong> न्यायपालिका दिवस मनाते हुए, हम न्याय और सत्य के लिए अपनी प्रतिबद्धता को नवीनीकृत करते हैं | 
+            Celebrating Judiciary Day, we renew our commitment to justice and truth.
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">न्यायिक सेवाएं | Legal Services</h2>
+            <p class="section-subtitle fade-in">Comprehensive legal solutions following Supreme Court standards</p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚖️</div>
+                    <h3>आपराधिक बचाव | Criminal Defense</h3>
+                    <p>Expert defense representation for all criminal charges including bail applications, trial proceedings, and appeals. We protect your constitutional rights and ensure due process of law as mandated by the Supreme Court.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏢</div>
+                    <h3>कॉर्पोरेट कानून | Corporate Law</h3>
+                    <p>Complete business legal services including company formation, contracts, compliance, mergers & acquisitions, and corporate governance following Supreme Court guidelines and constitutional provisions.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>पारिवारिक कानून | Family Law</h3>
+                    <p>Sensitive handling of family matters including divorce, child custody, adoption, domestic violence cases, and matrimonial disputes with Supreme Court precedent-based approach.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏠</div>
+                    <h3>संपत्ति कानून | Property Law</h3>
+                    <p>Comprehensive property legal services including disputes, registration, documentation, title verification, and real estate transactions following constitutional property rights.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💼</div>
+                    <h3>सिविल मुकदमेबाजी | Civil Litigation</h3>
+                    <p>Expert representation in civil matters including contract disputes, recovery suits, injunctions, and other proceedings in District Courts, High Courts, and Supreme Court.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📋</div>
+                    <h3>कानूनी प्रलेखन | Legal Documentation</h3>
+                    <p>Professional drafting and review of legal documents including agreements, wills, power of attorney, affidavits, and other instruments following Supreme Court formats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advocates Section -->
+    <section id="advocates" class="advocates">
+        <div class="container">
+            <h2 class="section-title fade-in">न्यायाधीश मंडल | Our Legal Panel</h2>
+            <p class="section-subtitle fade-in">Distinguished advocates with Supreme Court practice experience</p>
+            <div class="advocates-grid">
+                <div class="advocate-card fade-in">
+                    <div class="advocate-avatar">AT</div>
+                    <h3>अधिवक्ता आदित्य तिवारी</h3>
+                    <div class="title">वरिष्ठ साझीदार एवं संस्थापक | Senior Partner & Founder</div>
+                    <ul class="advocate-specialties">
+                        <li>🎓 LL.B, Lucknow University</li>
+                        <li>⭐ 8+ Years Supreme Court Practice</li>
+                        <li>🏆 Criminal & Constitutional Law Expert</li>
+                        <li>🎯 High Court & Supreme Court Advocate</li>
+                        <li>📜 Bar Council of India Member</li>
+                    </ul>
+                    <div class="advocate-contact">
+                        <a href="tel:+919415450478">📞 +91 94154 50478</a>
+                        <a href="mailto:arya3270@gmail.com">✉️ arya3270@gmail.com</a>
+                    </div>
+                </div>
+                <div class="advocate-card fade-in">
+                    <div class="advocate-avatar">AT</div>
+                    <h3>अधिवक्ता अनुराग त्रिपाठी</h3>
+                    <div class="title">वरिष्ठ सहयोगी | Senior Associate</div>
+                    <ul class="advocate-specialties">
+                        <li>🎓 LL.M, Constitutional Law</li>
+                        <li>⭐ 6+ Years Court Practice</li>
+                        <li>🏆 Corporate & Family Law Specialist</li>
+                        <li>🎯 Supreme Court Practice</li>
+                        <li>📜 Legal Research & Documentation</li>
+                    </ul>
+                    <div class="advocate-contact">
+                        <a href="tel:+919415450478">📞 Contact via Chamber</a>
+                        <a href="mailto:arya3270@gmail.com">✉️ Official Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="statistics" class="statistics">
+        <div class="container">
+            <h2 class="section-title" style="color: white; margin-bottom: 3rem;">न्यायिक आंकड़े | Judicial Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="500">0</span>
+                    <div class="stat-label">मामले निपटाए | Cases Resolved</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="8">0</span>
+                    <div class="stat-label">वर्षों का अनुभव | Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="95">0</span>
+                    <div class="stat-label">सफलता दर | Success Rate %</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <div class="stat-label">उच्च न्यायालय मामले | High Court Cases</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h2>संपर्क करें | Get In Touch</h2>
+                    <div class="contact-details">
+                        <div class="contact-item-large">
+                            <div class="contact-icon">🏛️</div>
+                            <div>
+                                <strong>न्यायालय पता | Chamber Address</strong>
+                                Shop No.A1, Dayal Residency<br>
+                                Chinhat, Lucknow - 226028<br>
+                                Uttar Pradesh, India
+                            </div>
+                        </div>
+                        <div class="contact-item-large">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <strong>दूरभाष | Phone Number</strong>
+                                <a href="tel:+919415450478">+91 94154 50478</a><br>
+                                <small>24x7 Emergency Legal Consultation</small>
+                            </div>
+                        </div>
+                        <div class="contact-item-large">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <strong>ई-मेल | Email Address</strong>
+                                <a href="mailto:arya3270@gmail.com">arya3270@gmail.com</a><br>
+                                <small>Official Legal Correspondence</small>
+                            </div>
+                        </div>
+                        <div class="contact-item-large">
+                            <div class="contact-icon">🕛</div>
+                            <div>
+                                <strong>कार्यालय समय | Office Hours</strong>
+                                Monday - Saturday: 9:00 AM - 7:00 PM<br>
+                                Sunday: 10:00 AM - 4:00 PM<br>
+                                <small>Emergency consultation available 24/7</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form fade-in" id="contactForm">
+                    <h3>न्यायिक परामर्श | Legal Consultation</h3>
+                    <div class="form-group">
+                        <label for="name">पूरा नाम | Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ई-मेल पता | Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">दूरभाष संख्या | Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="legalMatter">कानूनी मामला | Legal Matter Type</label>
+                        <select id="legalMatter" name="legalMatter">
+                            <option value="">Select Legal Matter</option>
+                            <option value="criminal">आपराधिक बचाव | Criminal Defense</option>
+                            <option value="corporate">कॉर्पोरेट कानून | Corporate Law</option>
+                            <option value="family">पारिवारिक कानून | Family Law</option>
+                            <option value="property">संपत्ति कानून | Property Law</option>
+                            <option value="civil">सिविल मुकदमेबाजी | Civil Litigation</option>
+                            <option value="constitutional">संवैधानिक कानून | Constitutional Law</option>
+                            <option value="other">अन्य | Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">मामले का विवरण | Case Details *</label>
+                        <textarea id="message" name="message" placeholder="Please describe your legal matter in detail..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">निःशुल्क परामर्श बुक करें | Schedule Free Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Aaditya Law Group</h3>
+                    <p><strong>सत्यमेव जयते | Truth Alone Triumphs</strong></p>
+                    <p>Your trusted legal partners following Supreme Court of India standards, providing expert legal services with integrity, professionalism, and dedication to constitutional justice.</p>
+                    <p><strong>न्यायाधीश मंडल | Legal Panel:</strong></p>
+                    <ul>
+                        <li>अधिवक्ता आदित्य तिवारी (वरिष्ठ साझीदार)</li>
+                        <li>अधिवक्ता अनुराग त्रिपाठी (वरिष्ठ सहयोगी)</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>न्यायिक क्षेत्र | Practice Areas</h3>
+                    <ul>
+                        <li><a href="#services">आपराधिक बचाव | Criminal Defense</a></li>
+                        <li><a href="#services">कॉर्पोरेट कानून | Corporate Law</a></li>
+                        <li><a href="#services">पारिवारिक कानून | Family Law</a></li>
+                        <li><a href="#services">संपत्ति कानून | Property Law</a></li>
+                        <li><a href="#services">सिविल मुकदमेबाजी | Civil Litigation</a></li>
+                        <li><a href="#services">संवैधानिक कानून | Constitutional Law</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>संपर्क विवरण | Contact Details</h3>
+                    <p><strong>पता | Address:</strong><br>
+                    Shop No.A1, Dayal Residency<br>
+                    Chinhat, Lucknow - 226028<br>
+                    Uttar Pradesh, India</p>
+                    <p><strong>दूरभाष | Phone:</strong> <a href="tel:+919415450478">+91 94154 50478</a></p>
+                    <p><strong>ई-मेल | Email:</strong> <a href="mailto:arya3270@gmail.com">arya3270@gmail.com</a></p>
+                    <p><strong>Bar Council Registration:</strong> Active Member</p>
+                </div>
+                <div class="footer-section">
+                    <h3>न्यायिक घंटे | Court Hours</h3>
+                    <p><strong>सोमवार - शनिवार | Monday - Saturday:</strong><br>9:00 AM - 7:00 PM</p>
+                    <p><strong>रविवार | Sunday:</strong><br>10:00 AM - 4:00 PM</p>
+                    <p><strong>आपातकालीन परामर्श | Emergency Consultation:</strong><br>24/7 उपलब्ध | Available Round the Clock</p>
+                    <p><strong>न्यायालय अवकाश | Court Holidays:</strong><br>As per Supreme Court Calendar</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aaditya Law Group | आदित्य लॉ ग्रुप | All Rights Reserved<br>
+                Professional Legal Services | व्यावसायिक कानूनी सेवाएं | Registered with Bar Council of India<br>
+                <strong>न्याय हमारा धर्म है | Justice is Our Dharma</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen with Supreme Court theme
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 2000); // Extended loading for governmental feel
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 120; // Account for both headers
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navMenu = document.getElementById('navMenu');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Enhanced Supreme Court style form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name').trim();
+            const email = formData.get('email').trim();
+            const phone = formData.get('phone').trim();
+            const legalMatter = formData.get('legalMatter');
+            const message = formData.get('message').trim();
+            
+            // Enhanced validation with legal terminology
+            const errors = [];
+            
+            if (!name || name.length < 2) {
+                errors.push('कृपया वैध पूरा नाम दर्ज करें | Please enter a valid full name');
+            }
+            
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errors.push('कृपया वैध ई-मेल पता दर्ज करें | Please enter a valid email address');
+            }
+            
+            if (!phone || !/^[+]?[\d\s-()]{10,}$/.test(phone)) {
+                errors.push('कृपया वैध दूरभाष संख्या दर्ज करें | Please enter a valid phone number');
+            }
+            
+            if (!message || message.length < 10) {
+                errors.push('कृपया मामले का विवरण दें | Please provide case details (minimum 10 characters)');
+            }
+            
+            if (errors.length > 0) {
+                alert('कृपया निम्नलिखित त्रुटियों को सुधारें | Please correct the following errors:\n• ' + errors.join('\n• '));
+                return;
+            }
+            
+            // Show Supreme Court style loading
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'परामर्श निर्धारण हो रहा है... | Scheduling Consultation...';
+            submitBtn.disabled = true;
+            
+            // Supreme Court style confirmation
+            setTimeout(() => {
+                const legalMatterText = legalMatter ? 
+                    this.querySelector(`option[value="${legalMatter}"]`).textContent : 
+                    'सामान्य कानूनी परामर्श | General Legal Consultation';
+                
+                alert(`धन्यवाद ${name} जी!\n\nआपका परामर्श अनुरोध प्राप्त हुआ है | Your consultation request received\n\nविषय | Matter: ${legalMatterText}\n\nअधिवक्ता आदित्य तिवारी आपसे 2-4 घंटे में संपर्क करेंगे:\n📞 ${phone}\n✉️ ${email}\n\nत्वरित सहायता के लिए कॉल करें | For urgent matters, call: +91 94154 50478\n\nसत्यमेव जयते | Truth Alone Triumphs`);
+                
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Supreme Court style WhatsApp integration
+                const whatsappMessage = encodeURIComponent(
+                    `नमस्ते अधिवक्ता आदित्य तिवारी जी,\n\nमैं ${name} हूं और मुझे ${legalMatterText} संबंधी कानूनी परामर्श चाहिए।\n\nमामले का विवरण: ${message}\n\nदूरभाष: ${phone}\nई-मेल: ${email}\n\nकृपया अपनी सुविधानुसार परामर्श का समय निर्धारित करें।\n\nसधन्यवाद\nसत्यमेव जयते`
+                );
+                const whatsappUrl = `https://wa.me/919415450478?text=${whatsappMessage}`;
+                
+                if (confirm('क्या आप त्वरित प्रतिक्रिया के लिए WhatsApp संदेश भी भेजना चाहते हैं?\nWould you like to send a WhatsApp message for faster response?')) {
+                    window.open(whatsappUrl, '_blank');
+                }
+                
+            }, 3000);
+        });
+
+        // Supreme Court style statistics animation
+        const animateStats = () => {
+            const stats = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        const target = entry.target;
+                        const finalValue = parseInt(target.dataset.target);
+                        let current = 0;
+                        const increment = finalValue / 150; // Slower for governmental feel
+                        const duration = 3000; // 3 seconds
+                        const stepTime = duration / 150;
+                        
+                        target.classList.add('animated');
+                        
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= finalValue) {
+                                target.textContent = finalValue + (finalValue === 95 ? '%' : '+');
+                                clearInterval(timer);
+                            } else {
+                                target.textContent = Math.floor(current) + (finalValue === 95 ? '%' : '+');
+                            }
+                        }, stepTime);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            stats.forEach(stat => observer.observe(stat));
+        };
+
+        // Fade in animation observer
+        const fadeInElements = () => {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(element => observer.observe(element));
+        };
+
+        // Initialize all animations
+        document.addEventListener('DOMContentLoaded', function() {
+            animateStats();
+            fadeInElements();
+            
+            // Add Supreme Court style keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Ctrl + J for Justice (scroll to home)
+                if (e.ctrlKey && e.key.toLowerCase() === 'j') {
+                    e.preventDefault();
+                    document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Ctrl + C for Contact
+                if (e.ctrlKey && e.key.toLowerCase() === 'c' && !e.shiftKey) {
+                    e.preventDefault();
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Ctrl + S for Services
+                if (e.ctrlKey && e.key.toLowerCase() === 's') {
+                    e.preventDefault();
+                    document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Supreme Court style scroll progress
+        function addScrollProgress() {
+            const progressBar = document.createElement('div');
+            progressBar.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 6px;
+                background: linear-gradient(90deg, var(--primary-red), var(--primary-gold), var(--supreme-blue));
+                z-index: 10001;
+                transition: width 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            `;
+            document.body.appendChild(progressBar);
+            
+            window.addEventListener('scroll', () => {
+                const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                progressBar.style.width = scrolled + '%';
+            });
+        }
+        
+        addScrollProgress();
+
+        // Add Supreme Court announcement ticker
+        function createTicker() {
+            const announcements = [
+                "न्यायपालिका दिवस 2024 | Judiciary Day 2024 - Justice for All",
+                "संविधान दिवस समारोह | Constitution Day Celebration - Fundamental Rights",
+                "कानूनी साक्षरता अभियान | Legal Literacy Campaign - Know Your Rights",
+                "निःशुल्क कानूनी सहायता | Free Legal Aid Available",
+                "न्याय सबके लिए | Justice for Everyone - Equal Treatment Under Law"
+            ];
+            
+            let currentIndex = 0;
+            const ticker = document.querySelector('.announcement');
+            
+            if (ticker) {
+                setInterval(() => {
+                    ticker.style.opacity = '0';
+                    setTimeout(() => {
+                        ticker.querySelector('strong').nextSibling.textContent = announcements[currentIndex];
+                        ticker.style.opacity = '1';
+                        currentIndex = (currentIndex + 1) % announcements.length;
+                    }, 500);
+                }, 5000);
+            }
+        }
+        
+        setTimeout(createTicker, 3000);
+
+        // Enhanced contact analytics
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactLinks = document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]');
+            
+            contactLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const type = this.href.startsWith('tel:') ? 'phone' : 'email';
+                    const value = this.href.replace(/^(tel:|mailto:)/, '');
+                    
+                    console.log(`Supreme Court Style Contact: ${type} - ${value}`);
+                    
+                    if (type === 'phone' && window.innerWidth > 768) {
+                        const confirmed = confirm(`अधिवक्ता आदित्य तिवारी को ${value} पर कॉल करें?\nCall Advocate Aditya Tiwari at ${value}?\n\nThis will open your phone application.`);
+                        if (!confirmed) {
+                            e.preventDefault();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
